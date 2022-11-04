@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Owner>
+@{
+    ViewData["Title"] = "Index";
+}
+<div>
+    <div>
+        Owners list.
+    </div>
+    <div>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Owner" asp-action="Create">Create new owner</a>
+    </div>
+    
+</div>
+
+<table>
+    <thead>
+        <tr>
+            
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Driver License
+            </th>
+            
+            <th>
+                <div>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Vehicle" asp-action="Edit">Edit</a>
+                </div>
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.FirstName
+                </td>
+                <td>
+                    @item.LastName
+                </td>
+                <td>
+                    @item.DriverLicense
+                </td>
+                
+                <td>
+                    <div role="group">
+                        <a asp-controller="Owner" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </div>
+                    <div role="group">
+                        <a asp-controller="Owner" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

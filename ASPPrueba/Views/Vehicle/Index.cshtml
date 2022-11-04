@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Vehicle>
+@{
+    ViewData["Title"] = "Index";
+}
+<div>
+    <div>
+        Vehicles list.
+    </div>
+    <div>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Vehicle" asp-action="Create">Create new vehicle</a>
+    </div>
+    
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Brand
+            </th>
+            <th>
+                Vin
+            </th>
+            <th>
+                Color
+            </th>
+            <th>
+                Year
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                <div>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Vehicle" asp-action="Edit">Edit</a>
+                </div>
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Brand
+                </td>
+                <td>
+                    @item.Vin
+                </td>
+                <td>
+                    @item.Color
+                </td>
+                <td>
+                    @item.Year
+                </td>
+                <td>
+                    @item.owner.FirstName
+                </td>
+                <td>
+                    <div role="group">
+                        <a asp-controller="Vehicle" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </div>
+                    <div role="group">
+                        <a asp-controller="Vehicle" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

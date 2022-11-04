@@ -1,0 +1,28 @@
+﻿@model Claim
+<form method="post">
+	<div>
+		<div>
+			<h2>Create claim</h2>
+		</div>
+	</div>
+	<div>
+		<label asp-for="Description">
+		</label>
+		<input asp-for="Description" />
+	</div>
+	<div>
+		<label asp-for="Status">
+		</label>
+		<input asp-for="Status" />
+	</div>
+	<div>
+		<label asp-for="Date">
+		</label>
+		<input asp-for="Date" />
+	</div>
+	
+	<button type="submit">Create</button>
+	<a asp-controller="Claim" asp-action="Index">
+		Back to list
+	</a>
+</form>

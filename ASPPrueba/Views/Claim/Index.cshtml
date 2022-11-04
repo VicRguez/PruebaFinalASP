@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Claim>
+@{
+    ViewData["Title"] = "Index";
+}
+<div>
+    <div>
+        Claims list.
+    </div>
+    <div>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Claim" asp-action="Create">Create new claim</a>
+    </div>
+    
+</div>
+
+<table>
+    <thead>
+        <tr>
+            
+            <th>
+                Description
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Vehicle Brand
+            </th>
+            
+            <th>
+                <div>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Claim" asp-action="Edit">Edit</a>
+                </div>
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.Status
+                </td>
+                <td>
+                    @item.Date
+                </td>
+                <td>
+                    @item.Vehicle.Brand
+                </td>
+                
+                <td>
+                    <div role="group">
+                        <a asp-controller="Claim" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </div>
+                    <div role="group">
+                        <a asp-controller="Claim" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
